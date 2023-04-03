@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:56:54 by ssalor            #+#    #+#             */
-/*   Updated: 2023/03/29 14:01:03 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/03 14:59:45 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int32_t	main(void)
 		error();
 
 	mlx_loop(mlx);
-
-	// Optional, terminate will clean up any leftovers, this is just to demonstrate.
 	mlx_delete_image(mlx, img);
 	mlx_delete_xpm42(xpm);
 	mlx_terminate(mlx);

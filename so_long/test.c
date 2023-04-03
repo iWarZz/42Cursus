@@ -6,14 +6,9 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:57:00 by ssalor            #+#    #+#             */
-/*   Updated: 2023/03/29 15:02:28 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/03 15:21:03 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// -----------------------------------------------------------------------------
-// Codam Coding College, Amsterdam @ 2022-2023 by W2Wizard.
-// See README in the root project for more information.
-// -----------------------------------------------------------------------------
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +16,7 @@
 #include "MLX42/include/MLX42/MLX42.h"
 
 #define WIDTH 1080
-#define HEIGHT 1080
+#define HEIGHT 720
 
 //static mlx_image_t* image;
 static mlx_image_t* img;
@@ -33,16 +28,15 @@ void ft_hook(void* param)
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(mlx);// IMPORTANT
 	if (mlx_is_key_down(mlx, MLX_KEY_W))
-		img->instances[0].y -= 10;
+		img->instances[0].y -= 5;
 	if (mlx_is_key_down(mlx, MLX_KEY_S))
-		img->instances[0].y += 10;
+		img->instances[0].y += 5;
 	if (mlx_is_key_down(mlx, MLX_KEY_A))
-		img->instances[0].x -= 10;
+		img->instances[0].x -= 5;
 	if (mlx_is_key_down(mlx, MLX_KEY_D))
-		img->instances[0].x += 10;
+		img->instances[0].x += 5;
+	//+ADD UN COMPTEUR
 }
-
-// -----------------------------------------------------------------------------
 
 static void error(void)
 {
@@ -83,17 +77,14 @@ int32_t main(int32_t argc, const char* argv[])
 		error();
 
 	// Display the image
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
+	if (mlx_image_to_window(mlx, img, 100, 100) < 0)
 		error();
 	
-	//mlx_loop_hook(mlx, ft_randomize, mlx);
-	mlx_loop_hook(mlx, ft_hook, mlx);
 
+	mlx_loop_hook(mlx, ft_hook, mlx);
 	mlx_loop(mlx);
-//--------------------------
 	mlx_delete_image(mlx, img);
 	mlx_delete_xpm42(xpm);
-//--------------------------
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }
