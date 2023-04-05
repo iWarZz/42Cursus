@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 11:55:56 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/06 14:26:53 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/07 12:49:06 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#include "libft.h"
 
-# include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/lift.h"
-
-# define VOID '0'
-# define WALL '1'
-# define EXIT 'E'
-# define COLLECTABLE 'C'
-# define PLAYER 'P'
-
-# define WIN_MESSAGE "YOU WIN !"
-
-typedef struct s_point
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int x;
-	int y;
-}	t_point;
+	size_t	i;
+	size_t	len;
+	char	*dest;
 
-
-
-#endif
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	dest = malloc((len + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dest[i] = f(i, s[i]);
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}

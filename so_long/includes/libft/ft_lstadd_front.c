@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 11:54:45 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/03 11:56:11 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/09 11:40:11 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/09 13:06:58 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "MLX42/include/MLX42/MLX42.h"
+#include "libft.h"
 
-#define WIDTH 1080
-#define HEIGHT 1080
-
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}

@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 11:55:56 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/12 15:45:59 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/13 14:00:03 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#include "libft.h"
 
-# include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/lift.h"
-
-# define VOID '0'
-# define WALL '1'
-# define EXIT 'E'
-# define COLLECTABLE 'C'
-# define PLAYER 'P'
-
-# define WIN_MESSAGE "YOU WIN !"
-
-typedef struct s_point
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int x;
-	int y;
-}	t_point;
+	t_list	*new;
+	t_list	*top;
+	void	*temp;
 
-
-
-#endif
+	new = NULL;
+	while (lst)
+	{
+		temp = (*f)(lst->content);
+		top = ft_lstnew(temp);
+		if (!top)
+		{
+			free (temp);
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, top);
+		lst = lst->next;
+	}
+	return (new);
+}

@@ -6,16 +6,16 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:57:00 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/03 15:21:03 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/05 11:58:55 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "MLX42/include/MLX42/MLX42.h"
+#include "../MLX42/include/MLX42/MLX42.h"
 
-#define WIDTH 1080
+#define WIDTH 1080 
 #define HEIGHT 720
 
 //static mlx_image_t* image;

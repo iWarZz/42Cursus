@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 11:55:56 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/04 15:33:54 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/04 15:44:59 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#include "libft.h"
 
-# include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/lift.h"
-
-# define VOID '0'
-# define WALL '1'
-# define EXIT 'E'
-# define COLLECTABLE 'C'
-# define PLAYER 'P'
-
-# define WIN_MESSAGE "YOU WIN !"
-
-typedef struct s_point
+void	ft_putnbr_fd(int n, int fd)
 {
-	int x;
-	int y;
-}	t_point;
+	char	c;
 
-
-
-#endif
+	if (n == -2147483648)
+	{
+		write(fd, "-", 1);
+		write(fd, "2", 1);
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+	{
+		c = n + 48;
+		write(fd, &c, 1);
+	}
+}

@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 11:55:56 by ssalor           ###   ########.fr       */
+/*   Created: 2022/11/22 14:04:44 by ssalor            #+#    #+#             */
+/*   Updated: 2022/11/29 15:35:39 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#include "libft.h"
 
-# include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/lift.h"
-
-# define VOID '0'
-# define WALL '1'
-# define EXIT 'E'
-# define COLLECTABLE 'C'
-# define PLAYER 'P'
-
-# define WIN_MESSAGE "YOU WIN !"
-
-typedef struct s_point
+int	ft_isalpha(int a)
 {
-	int x;
-	int y;
-}	t_point;
-
-
-
-#endif
+	if ((a >= 65 && a <= 90) || (a >= 97 && a <= 122))
+		return (1);
+	return (0);
+}
