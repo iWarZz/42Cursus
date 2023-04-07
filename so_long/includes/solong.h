@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 13:37:45 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:19:09 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SOLONG_H
 
 # include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/libft.h"
+# include "libft/libft.h"
 
 # define VOID '0'
 # define WALL '1'
