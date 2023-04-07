@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/05 11:55:56 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/05 13:37:45 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SOLONG_H
 
 # include "MLX42/include/MLX42/MLX42.h"
-# include "includes/libft/lift.h"
+# include "includes/libft/libft.h"
 
 # define VOID '0'
 # define WALL '1'
@@ -22,13 +22,24 @@
 # define COLLECTABLE 'C'
 # define PLAYER 'P'
 
-# define WIN_MESSAGE "YOU WIN !"
+# define WIN_MESSAGE "YOU WON !"
 
 typedef struct s_point
 {
 	int x;
 	int y;
 }	t_point;
+
+typedef struct s_map
+{
+	char		**map;
+	int			rows; //lignes
+	int			columns;
+	int			collectables;
+	int			exit;
+	int			player;
+	t_point		player_pos;
+}	t_map;
 
 
 
