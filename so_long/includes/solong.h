@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/11 15:03:45 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/11 15:13:52 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ typedef struct s_map
 	t_point		player_pos;
 }	t_map;
 
-typedef struct s_tiles {
+typedef struct s_tiles
+{
 	void	*wall;
 	void	*floor;
 	void	*player;
-	void	*collectible;
+	void	*collectable;
 	void	*exit;
 }	t_tiles;
 
@@ -61,7 +62,16 @@ typedef struct s_game
 
 static inline t_game	init_game(void)
 {
-	
+	return ((t_game)
+	{
+		.map.map = NULL,
+		.map.rows = 0,
+		.map.columns = 0,
+		.map.collectables = 0,
+		.map.exit = 0,
+		.map.player = 0,
+		
+	});
 }
 
 
