@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/07 14:19:09 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/11 15:03:45 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
+# include "tiles.h"
 
 # define VOID '0'
 # define WALL '1'
@@ -41,6 +42,27 @@ typedef struct s_map
 	t_point		player_pos;
 }	t_map;
 
+typedef struct s_tiles {
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*collectible;
+	void	*exit;
+}	t_tiles;
+
+typedef struct s_game
+{
+	t_map	map;
+	void	*mlx_ptr;
+	void	*mlx_win;
+	t_tiles	tiles;
+	int		moves;
+}	t_game;
+
+static inline t_game	init_game(void)
+{
+	
+}
 
 
 #endif
