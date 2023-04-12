@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/11 15:13:52 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/12 13:35:53 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
 # include "tiles.h"
+# include "map.h"
 
 # define VOID '0'
 # define WALL '1'
@@ -70,9 +71,13 @@ static inline t_game	init_game(void)
 		.map.collectables = 0,
 		.map.exit = 0,
 		.map.player = 0,
-		
+		.tiles.collectable = NULL,
+		.tiles.exit = NULL,
+		.tiles.floor = NULL,
+		.tiles.player = NULL,
+		.tiles.wall = NULL,
+		.moves = -1,
 	});
 }
-
 
 #endif
