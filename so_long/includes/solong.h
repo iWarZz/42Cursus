@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/12 13:35:53 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/26 11:37:34 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_game
 {
 	t_map	map;
 	void	*mlx_ptr;
-	void	*mlx_win;
+	void	*win_ptr;
 	t_tiles	tiles;
 	int		moves;
 }	t_game;
