@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 14:19:51 by ssalor            #+#    #+#              #
-#    Updated: 2023/02/20 13:50:48 by ssalor           ###   ########.fr        #
+#    Updated: 2023/04/27 14:55:55 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,22 +76,22 @@ OBJECTS_BONUS = $(SOURCES_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS):
-	$(CC) $(CFLAGS) -c $(SOURCES)
+	@$(CC) $(CFLAGS) -c $(SOURCES)
 
 $(OBJECTS_BONUS):
-	$(CC) $(CFLAGS) -c $(SOURCES_BONUS)
+	@$(CC) $(CFLAGS) -c $(SOURCES_BONUS)
 clean:
-	$(RM) $(OBJECTS) $(OBJECTS_BONUS)
+	@$(RM) $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
 bonus: $(OBJECTS) $(OBJECTS_BONUS)
-	ar rcs $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+	@ar rcs $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
 
 .PHONY : all clean fclean re bonus

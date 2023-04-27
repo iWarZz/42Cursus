@@ -6,17 +6,87 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/26 11:37:34 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/04/27 15:09:33 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
 
-# include "MLX42/include/MLX42/MLX42.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <math.h>
+# include <stdbool.h>
+
+# include "../MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
-# include "tiles.h"
-# include "map.h"
+
+typedef struct player_data_s
+{
+	int	x;
+	int	y;
+}	t_player_data;
+
+typedef struct data_tiles_s
+{
+	int				image_res;
+	char			*player_xpm42;
+	xpm_t			player_xpmt;
+	mlx_image_t		player_image;
+}	t_data_tiles;
+
+typedef struct game_s
+{
+	void			*mlx_ptr;
+	void			*win_ptr;
+	int				exit_count;
+	int				item_count;
+	int				player_count;
+	int				item_found;
+	int				move_count;
+	char			**map;
+	t_player_data	data_player;
+	t_data_tiles	data_tiles;
+}	t_game;
+
+/*ERROR MESSAGES */
+
+# define MALLOC_ERROR "malloc() failed"
+ 
+# define MLX_INIT_ERR "Failed to initialize mlx"
+# define MLX_NEW_WINDOW_ERR "Failed to open a new window"
+
+/* ARGUMENT VALIDATION */
+
+# define INVALID_NBR_ARGS "Invalid number of arguments"
+# define NULL_MAP "NULL map argument"
+
+/* MAP VALIDATION */
+
+# define INVALID_ENTITY "Invalid entity on map's file"
+# define INVALID_FORMAT "Invalid map format"
+# define MAP_NOT_CLOSED "Map is not closed by walls"
+# define INVALID_NBR_EXIT "Invalid number of Exits (E)"
+# define NO_COLLECTABLES "Map doesn't have any Collectable (C)"
+# define INVALID_NBR_PLAYERS "Invalid number of Players on map (P)"
+
+# define UNACHIEVABLE_ENTITIES "Map has unachievable entities"
+
+/* READING MAP'S CONTENT */
+
+# define INVALID_MAP_FILE "Invalid map file extension"
+# define OPEN_MAP_FILE_ERR "Failed to open map's file"
+# define EMPTY_MAP_FILE "Map file is empty"
+
+/* XPM OPENING (les images connard) */
+
+# define WALL_XPM_ERR "Failed to open wall image"
+# define FLOOR_XPM_ERR "Failed to open floor image"
+# define PLAYER_XPM_ERR "Failed to open player image"
+# define COLLECTABLE_XPM_ERR "Failed to open collectable image"
+# define EXIT_XPM_ERR "Failed to open exit image"
 
 # define VOID '0'
 # define WALL '1'
@@ -25,59 +95,5 @@
 # define PLAYER 'P'
 
 # define WIN_MESSAGE "YOU WON !"
-
-typedef struct s_point
-{
-	int x;
-	int y;
-}	t_point;
-
-typedef struct s_map
-{
-	char		**map;
-	int			rows; //lignes
-	int			columns;
-	int			collectables;
-	int			exit;
-	int			player;
-	t_point		player_pos;
-}	t_map;
-
-typedef struct s_tiles
-{
-	void	*wall;
-	void	*floor;
-	void	*player;
-	void	*collectable;
-	void	*exit;
-}	t_tiles;
-
-typedef struct s_game
-{
-	t_map	map;
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_tiles	tiles;
-	int		moves;
-}	t_game;
-
-static inline t_game	init_game(void)
-{
-	return ((t_game)
-	{
-		.map.map = NULL,
-		.map.rows = 0,
-		.map.columns = 0,
-		.map.collectables = 0,
-		.map.exit = 0,
-		.map.player = 0,
-		.tiles.collectable = NULL,
-		.tiles.exit = NULL,
-		.tiles.floor = NULL,
-		.tiles.player = NULL,
-		.tiles.wall = NULL,
-		.moves = -1,
-	});
-}
 
 #endif
