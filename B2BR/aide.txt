@@ -1,0 +1,143 @@
+
+root password :  			Jeremy2406
+user sailor password :		Jeremy2406
+encryption passphrase ;		Jeremy2406
+
+pour arricher les partitions de disque
+$ lsblk
+
+pour switch sur root
+$ su -
+puis mdp Jeremy2406
+
+ajouter un user dans le groupe sudo
+adduser <usernanme> sudo
+
+verifier le groupe sudo
+$ getent group sudo
+
+https://youtu.be/GO57OOnBhQ0?t=373
+
+recuperer le hostname
+$ hostname -I
+10.0.2.15
+
+pour l'adresse ip rdv dans virtualbox
+suivre la video plus haut
+vboxnet0 = 192.168.56.1/24
+
+connexion ssh
+$ ssh ssalor@192.168.56.1 -p 4242
+
+creer nouvel user
+$ sudo adduser <username>
+verifier la creation du nouvel user
+$ getent passwd <username>
+
+voir les infos du mdp du nouvel user
+$ sudo chage -l <username>
+
+Voir tout les user
+$ cut -d: -f1 /etc/passwd
+
+creer un nouveau groupe
+$ sudo addgroup <groupname>
+
+ajouter un user au groupe 
+$ sudo adduser <username> <groupname>
+
+voir qui est dans le group
+$ getent group <groupname>
+
+Verifier les temps de mdp (30, 2, 7)
+$ sudo vi /etc/login.defs
+
+Verfier le password policy
+$ sudo vi /etc/pam.d/common-password
+
+
+Voir le nom Host
+$ hostnamectl
+
+changer le hostname
+$ hostnamectl set-hostname "<new-hostname>"
+$ sudo reboot
+
+
+## TEST
+
+$ head -n 2 /etc/os-release
+---	Info system
+
+$ lsblk
+--- minimum 2 partitions chiffrees
+
+$ cd /home/<user>/
+$ /usr/sbin/aa-status
+---	apparmor loaded ?
+
+$ ss -tunlp
+--- connexion ouverte en 4242
+
+$ su
+$ /usr/sbin/ufw status
+--- ufw en allow sur 4242 et 4242v6
+
+---	interrompre le script
+$ crontab -e
+	commenter le cronjob
+
+Voir les ports
+$ sudo uff status numbered
+
+Ajouter un port
+$ sudo uff allow <XXXX>
+
+Supprimer un port
+$ sudo uff delete X
+
+changement de hostname :
+sur la mv, pas en ssh
+$ hostnamectl set-hostname "<new-hostname>"
+$ reboot
+
+--	creer nouvel user
+$ sudo adduser <username>
+---	verifier la creation du nouvel user
+$ getent passwd <username>
+---	voir les infos du mdp du nouvel user
+$ sudo chage -l <username>
+
+---	creer un nouveau groupe
+$ sudo addgroup <groupname>
+---	ajouter un user au groupe
+$ sudo adduser <username> <groupname>
+---	voir qui est dans le group
+$ getent group <groupname>
+
+---	Verifier les temps de mdp (30, 2, 7)
+$ sudo vi /etc/login.defs
+---	Verfier le password policy
+$ sudo vi /etc/pam.d/common-password
+
+
+
+Diff entre apt-get et Apptitude
+	les deux dont des logiciel de gestions de paquet
+	Aptitude est plus fourni que apt
+	Aptitude a une interface graphique, apt non
+
+SELinux Security-Enhanced Linux
+	Creer par la NSA
+	Module de securite Linux
+	Gere les acces au fichier selon les droits detenu
+
+apparmor
+	systeme de controle d'acces obligatoire s'appuyant sur SELinux
+	linux interroge apparmor a chaque appel pour savoir s'il est autoriser
+
+
+Obtenir la signature de la vm :
+
+cd <dossier de la vm>
+shasum -a 1 <fichier.vdi>

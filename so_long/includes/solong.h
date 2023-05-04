@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/27 15:09:33 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/01 13:12:10 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,12 @@ typedef struct game_s
 # define PLAYER 'P'
 
 # define WIN_MESSAGE "YOU WON !"
+
+//dans so_long.c
+int		main(int argc, char **argv);
+
+//dans check_map.c
+void	parse_map(char *str);
+void	check_map(int fd);
 
 #endif
