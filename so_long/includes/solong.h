@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/01 13:12:10 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/04 14:10:32 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct data_tiles_s
 	mlx_image_t		player_image;
 }	t_data_tiles;
 
-typedef struct game_s
+typedef struct data_s
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -49,7 +49,7 @@ typedef struct game_s
 	char			**map;
 	t_player_data	data_player;
 	t_data_tiles	data_tiles;
-}	t_game;
+}	t_data;
 
 /*ERROR MESSAGES */
 
