@@ -6,18 +6,33 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/04/27 14:07:56 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:56:11 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/solong.h"
 
-void	check_map(int fd)
+void	get_map(int fd, t_data *data)
 {
+	char	*buffer;
+	char	*line;
+	char	*temp_line;
+	int		read_line;
+
 	
 }
 
-void	parse_map(char *str)
+void	check_map(int fd, t_data *data)
+{
+	int	i;
+	int	y;
+
+	i = 0;
+	y = 0;
+	get_map(fd, data);
+}
+
+void	parse_map(char *str, t_data *data)
 {
 	char	*extension;
 	int		fd;
@@ -34,6 +49,6 @@ void	parse_map(char *str)
 		fd = open (str, O_RDONLY);
 		if (fd == -1)
 			exit (ft_printf(OPEN_MAP_FILE_ERR));
-		check_map(fd);
+		check_map(fd, data);
 	}
 }

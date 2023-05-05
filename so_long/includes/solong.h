@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/04 14:10:32 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:56:07 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
+
+# define BUFERSIZE 30
 
 typedef struct player_data_s
 {
@@ -100,7 +102,8 @@ typedef struct data_s
 int		main(int argc, char **argv);
 
 //dans check_map.c
-void	parse_map(char *str);
-void	check_map(int fd);
+void	parse_map(char *str, t_data *data);
+void	check_map(int fd, t_data *data);
+void	get_map(int fd, t_data *data);
 
 #endif
