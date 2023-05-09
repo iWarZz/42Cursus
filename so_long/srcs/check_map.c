@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/05 13:56:11 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:41:51 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,19 @@ void	get_map(int fd, t_data *data)
 {
 	char	*buffer;
 	char	*line;
-	char	*temp_line;
-	int		read_line;
+	char	*line_tmp;
+	int		read_length;
 
-	
+	read_length = 1;
+	line = ft_calloc(1, 1);
+	buffer = ft_calloc(BUFFERSIZE + 1, sizeof(char));
+	while (read_length > 0)
+	{
+		read_length = read(fd, buffer, BUFFERSIZE);
+		if (read_length < 0)
+			data->map = NULL;
+		
+	}
 }
 
 void	check_map(int fd, t_data *data)

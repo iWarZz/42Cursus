@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/05 13:56:07 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/09 11:56:10 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
 
-# define BUFERSIZE 30
+# define BUFFERSIZE 30
 
 typedef struct player_data_s
 {
