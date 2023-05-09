@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/09 13:41:51 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/09 14:19:06 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ void	get_map(int fd, t_data *data)
 		read_length = read(fd, buffer, BUFFERSIZE);
 		if (read_length < 0)
 			data->map = NULL;
-		
+		buffer[read_length] = '\0';
+		line_tmp = line;
+		line = ft_strjoin(line, buffer);
+		free(line_tmp);
+		if (read_length == 0)
+			data->map = ft_split(line, '\n');
+		free(buffer);
+		buffer = ft_calloc(BUFFERSIZE + 1, sizeof(char));
 	}
+	free(buffer);
+	free(line);
+	close(fd);
 }
 
 void	check_map(int fd, t_data *data)
@@ -39,6 +49,17 @@ void	check_map(int fd, t_data *data)
 	i = 0;
 	y = 0;
 	get_map(fd, data);
+	if (!data->map)
+		exit (ft_printf("JE SAIS PAS QUOI METTRE"))
+	while (data->map[i])
+	{
+		if (ft_strlen(data->map[i]) != ft_strlen(data->map[0]))
+			exit (ft_printf(INVALID_FORMAT));
+		while (data->map[i][y])
+		{
+			
+		}
+	}
 }
 
 void	parse_map(char *str, t_data *data)
