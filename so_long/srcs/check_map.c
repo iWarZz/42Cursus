@@ -6,11 +6,40 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/09 14:19:06 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/09 14:59:03 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/solong.h"
+
+void	check_nbr_char_map(t_data *data)
+{
+	if (data->collect_count <= 0)
+		exit (ft_printf(NO_COLLECTABLES));
+	if (data->player_count != 1)
+		exit (ft_printf(INVALID_NBR_PLAYERS));
+	if (data->exit_count != 1)
+		exit (ft_printf(INVALID_NBR_EXIT));
+}
+
+int		check_char_map(char c, int x, int y, t_data *data)
+{
+	if (c == VOID || c == WALL || c == EXIT || c == COLLECT || c == PLAYER)
+	{
+		if (c == COLLECT)
+			data->collect_count++;
+		if (c == EXIT)
+			data->exit_count++;
+		if (c == PLAYER)
+		{
+			data->player_count++;
+			data->data_player.x = x;
+			data->data_player.y = y;
+		}
+		return (1);
+	}
+	return (0);
+}
 
 void	get_map(int fd, t_data *data)
 {
@@ -50,16 +79,20 @@ void	check_map(int fd, t_data *data)
 	y = 0;
 	get_map(fd, data);
 	if (!data->map)
-		exit (ft_printf("JE SAIS PAS QUOI METTRE"))
+		exit (ft_printf("JE SAIS PAS QUOI METTRE"));
 	while (data->map[i])
 	{
 		if (ft_strlen(data->map[i]) != ft_strlen(data->map[0]))
 			exit (ft_printf(INVALID_FORMAT));
 		while (data->map[i][y])
 		{
-			
+			if (!check_char_map(data->map[i][y], i, y, data));
+				exit (ft_printf(INVALID_ENTITY));
+			y++;
 		}
+		i++;
 	}
+	check_nbr_char_map(data);
 }
 
 void	parse_map(char *str, t_data *data)

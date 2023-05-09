@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/09 11:56:10 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/09 14:52:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct data_s
 	void			*mlx_ptr;
 	void			*win_ptr;
 	int				exit_count;
-	int				item_count;
+	int				collect_count;
 	int				player_count;
 	int				item_found;
 	int				move_count;
@@ -56,7 +56,7 @@ typedef struct data_s
 /*ERROR MESSAGES */
 
 # define MALLOC_ERROR "malloc() failed"
- 
+
 # define MLX_INIT_ERR "Failed to initialize mlx"
 # define MLX_NEW_WINDOW_ERR "Failed to open a new window"
 
@@ -93,7 +93,7 @@ typedef struct data_s
 # define VOID '0'
 # define WALL '1'
 # define EXIT 'E'
-# define COLLECTABLE 'C'
+# define COLLECT 'C'
 # define PLAYER 'P'
 
 # define WIN_MESSAGE "YOU WON !"
@@ -105,5 +105,7 @@ int		main(int argc, char **argv);
 void	parse_map(char *str, t_data *data);
 void	check_map(int fd, t_data *data);
 void	get_map(int fd, t_data *data);
+int		check_char_map(char c, int x, int y, t_data *data);
+void	check_nbr_char_map(t_data *data);
 
 #endif
