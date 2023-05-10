@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/10 11:26:20 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/10 14:45:29 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ void	check_map(int fd, t_data *data)
 		i++;
 	}
 	check_nbr_char_map(data);
-	if (!map_());
+	if (!map_close_by_wall(data->map, i));
+		exit (ft_printf(MAP_NOT_CLOSED));
+	can_play_map();
 }
 
 void	parse_map(char *str, t_data *data)

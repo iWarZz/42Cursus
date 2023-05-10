@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/09 15:38:55 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/10 11:52:12 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ int		check_char_map(char c, int x, int y, t_data *data);
 void	check_nbr_char_map(t_data *data);
 
 //dans utils.c
-
-//void	map_is_playable(t_data *data, int i);
+int		map_close_by_wall(char **map, int i);
 
 #endif
