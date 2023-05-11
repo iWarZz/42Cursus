@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:17:46 by ssalor            #+#    #+#             */
-/*   Updated: 2023/03/22 15:02:34 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/11 11:32:06 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_ctob(unsigned char c, int pid)
 		{
 			kill(pid, SIGUSR2);
 		}
-		usleep(500);
+		usleep(50);
 		i--;
 	}
 }

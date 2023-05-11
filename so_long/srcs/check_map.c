@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/10 14:45:29 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/05/11 11:13:24 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	check_map(int fd, t_data *data)
 	y = 0;
 	get_map(fd, data);
 	if (!data->map)
-		exit (ft_printf("JE SAIS PAS QUOI METTRE"));
+		exit (ft_printf(EMPTY_MAP_FILE));
 	while (data->map[i])
 	{
 		if (ft_strlen(data->map[i]) != ft_strlen(data->map[0]))
