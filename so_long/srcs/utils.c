@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:36:30 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/10 14:37:09 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/05 09:32:26 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,9 @@ int		map_close_by_wall(char **map, int i)
 			y++;
 	}
 	return (1);
+}
+
+void	can_play_map(t_data *data, int map_height, int map_width)
+{
+	
 }

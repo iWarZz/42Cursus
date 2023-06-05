@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/05/10 11:52:12 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/05 09:33:01 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct data_s
 	int				item_found;
 	int				move_count;
 	char			**map;
+	int				map_heigth;
+	int				map_width;
 	t_player_data	data_player;
 	t_data_tiles	data_tiles;
 }	t_data;
@@ -110,5 +112,6 @@ void	check_nbr_char_map(t_data *data);
 
 //dans utils.c
 int		map_close_by_wall(char **map, int i);
+void	can_play_map(t_data *data, int map_height, int width);
 
 #endif
