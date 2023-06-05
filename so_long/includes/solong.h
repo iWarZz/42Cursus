@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/05 11:11:31 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/05 14:34:26 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ typedef struct player_data_s
 
 typedef struct data_tiles_s
 {
-	int				image_res;
-	char			*player_xpm42;
-	xpm_t			player_xpmt;
-	mlx_image_t		player_image;
+	xpm_t			*player_xpmt;
+	xpm_t			*wall_xpmt;
+	xpm_t			*void_xpmt;
+	xpm_t			*collect_xpmt;
+	xpm_t			*exit_xpmt;
+	mlx_image_t		*player_image;
+	mlx_image_t		*wall_image;
+	mlx_image_t		*void_image;
+	mlx_image_t		*collect_image;
+	mlx_image_t		*exit_image;
 }	t_data_tiles;
 
 typedef struct data_s
@@ -88,11 +94,8 @@ typedef struct data_s
 
 /* XPM OPENING (les images connard) */
 
-# define WALL_XPM_ERR "Failed to open wall image"
-# define FLOOR_XPM_ERR "Failed to open floor image"
-# define PLAYER_XPM_ERR "Failed to open player image"
-# define COLLECTABLE_XPM_ERR "Failed to open collectable image"
-# define EXIT_XPM_ERR "Failed to open exit image"
+# define XPM_ERROR "Fail to load XPM"
+# define IMAGE_ERROR "Fail to convert image to texture"
 
 # define VOID '0'
 # define WALL '1'
@@ -116,5 +119,8 @@ void	check_nbr_char_map(t_data *data);
 int		map_close_by_wall(char **map, int i);
 void	can_play_map(t_data *data, int map_height, int width);
 void	solong_dfs(int x, int y, t_data *data, int **visited);
+
+//dans solong_loader
+void	solong_render_manager(t_data *data);
 
 #endif
