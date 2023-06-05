@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/05 09:33:01 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/05 11:11:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct data_s
 	char			**map;
 	int				map_heigth;
 	int				map_width;
+	int				coll_found_dfs;
 	t_player_data	data_player;
 	t_data_tiles	data_tiles;
 }	t_data;
@@ -83,6 +84,7 @@ typedef struct data_s
 # define INVALID_MAP_FILE "Invalid map file extension"
 # define OPEN_MAP_FILE_ERR "Failed to open map's file"
 # define EMPTY_MAP_FILE "Map file is empty"
+# define MAP_NOT_PLAYABLE "Map is not playable"
 
 /* XPM OPENING (les images connard) */
 
@@ -113,5 +115,6 @@ void	check_nbr_char_map(t_data *data);
 //dans utils.c
 int		map_close_by_wall(char **map, int i);
 void	can_play_map(t_data *data, int map_height, int width);
+void	solong_dfs(int x, int y, t_data *data, int **visited);
 
 #endif
