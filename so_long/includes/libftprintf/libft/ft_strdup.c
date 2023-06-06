@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:11:25 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/04 13:24:09 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/04 13:46:12 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_data	data;
-	
-	if (argc != 2)
-		exit (ft_printf(INVALID_NBR_ARGS));
-	solong_setup(&data);
-	parse_map(argv[1], &data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64, "HULK REVENGE", true);
-	solong_loader(&data);
-	solong_render_manager(&data);
+	char	*dest;
+	size_t	i;
+
+	i = 0;
+	dest = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (s[i])
+	{
+		dest[i] = s[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

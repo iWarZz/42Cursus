@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/05 14:34:26 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 10:10:06 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "libft/libft.h"
+# include "libftprintf/srcs/ft_printf.h"
 
 # define BUFFERSIZE 30
 
@@ -49,6 +50,8 @@ typedef struct data_s
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	int				image_width;
+	int				image_heigth;
 	int				exit_count;
 	int				collect_count;
 	int				player_count;
@@ -58,6 +61,7 @@ typedef struct data_s
 	int				map_heigth;
 	int				map_width;
 	int				coll_found_dfs;
+	int				collect_found_player;
 	t_player_data	data_player;
 	t_data_tiles	data_tiles;
 }	t_data;
@@ -119,8 +123,12 @@ void	check_nbr_char_map(t_data *data);
 int		map_close_by_wall(char **map, int i);
 void	can_play_map(t_data *data, int map_height, int width);
 void	solong_dfs(int x, int y, t_data *data, int **visited);
+void	solong_setup(t_data *data);
 
 //dans solong_loader
 void	solong_render_manager(t_data *data);
+void	solong_loader(t_data *data);
+void	solong_double_renderer(t_data *data, mlx_image_t *img, int x, int y);
+void	solong_renderer(t_data *data, mlx_image_t *img, int x, int y);
 
 #endif

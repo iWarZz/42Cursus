@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:11:25 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/04 15:30:07 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/04 15:44:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_data	data;
-	
-	if (argc != 2)
-		exit (ft_printf(INVALID_NBR_ARGS));
-	solong_setup(&data);
-	parse_map(argv[1], &data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64, "HULK REVENGE", true);
-	solong_loader(&data);
-	solong_render_manager(&data);
+	int	i;
+
+	i = 0;
+	if (s && fd >= 0)
+	{
+		while (s[i])
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
+		write(fd, "\n", 1);
+	}
 }

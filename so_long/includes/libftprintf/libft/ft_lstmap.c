@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:11:25 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/12 15:45:59 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/13 14:00:03 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_data	data;
-	
-	if (argc != 2)
-		exit (ft_printf(INVALID_NBR_ARGS));
-	solong_setup(&data);
-	parse_map(argv[1], &data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64, "HULK REVENGE", true);
-	solong_loader(&data);
-	solong_render_manager(&data);
+	t_list	*new;
+	t_list	*top;
+	void	*temp;
+
+	new = NULL;
+	while (lst)
+	{
+		temp = (*f)(lst->content);
+		top = ft_lstnew(temp);
+		if (!top)
+		{
+			free (temp);
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, top);
+		lst = lst->next;
+	}
+	return (new);
 }

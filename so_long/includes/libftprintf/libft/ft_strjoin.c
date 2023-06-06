@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:11:25 by ssalor           ###   ########.fr       */
+/*   Created: 2022/12/04 14:47:41 by ssalor            #+#    #+#             */
+/*   Updated: 2022/12/04 15:18:20 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_data	data;
-	
-	if (argc != 2)
-		exit (ft_printf(INVALID_NBR_ARGS));
-	solong_setup(&data);
-	parse_map(argv[1], &data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64, "HULK REVENGE", true);
-	solong_loader(&data);
-	solong_render_manager(&data);
+	char	*dest;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	dest = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		dest[i + j] = s2[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
 }

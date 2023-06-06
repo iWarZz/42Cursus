@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/05 09:32:16 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 10:08:41 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,14 @@ void	check_map(int fd, t_data *data)
 			exit (ft_printf(INVALID_FORMAT));
 		while (data->map[i][y])
 		{
-			if (!check_char_map(data->map[i][y], i, y, data));
+			if (!check_char_map(data->map[i][y], i, y, data))
 				exit (ft_printf(INVALID_ENTITY));
 			y++;
 		}
 		i++;
 	}
 	check_nbr_char_map(data);
-	if (!map_close_by_wall(data->map, i));
+	if (!map_close_by_wall(data->map, i))
 		exit (ft_printf(MAP_NOT_CLOSED));
 	can_play_map(data, i, ft_strlen(data->map[0]));
 }

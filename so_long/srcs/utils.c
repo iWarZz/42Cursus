@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:36:30 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/05 11:14:39 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 09:54:59 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,21 @@ void	solong_dfs(int x, int y, t_data *data, int **visited)
 		solong_dfs(x + 1, y, data, visited);
 	if (data->map[x][y + 1] != WALL && !visited[x][y + 1])
 		solong_dfs(x, y + 1, data, visited);
+}
+
+void	solong_setup(t_data *data)
+{
+	data->mlx_ptr = NULL;
+	data->win_ptr = NULL;
+	data->move_count = 0;
+	data->collect_count = 0;
+	data->player_count = 0;
+	data->exit_count = 0;
+	data->coll_found_dfs = 0;
+	data->collect_found_player = 0;
+	data->map = NULL;
+	data->data_player.x = 0;
+	data->data_player.y = 0;
+	data->image_width = 64;
+	data->image_heigth = 64;
 }

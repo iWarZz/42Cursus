@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:11:25 by ssalor           ###   ########.fr       */
+/*   Created: 2022/11/25 15:00:34 by ssalor            #+#    #+#             */
+/*   Updated: 2022/11/30 17:28:12 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_data	data;
-	
-	if (argc != 2)
-		exit (ft_printf(INVALID_NBR_ARGS));
-	solong_setup(&data);
-	parse_map(argv[1], &data);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64, "HULK REVENGE", true);
-	solong_loader(&data);
-	solong_render_manager(&data);
+	int	i;
+
+	if (!dest && !src)
+		return (NULL);
+	if (dest > src)
+	{
+		i = n - 1;
+		while (i >= 0)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i--;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < (int)n)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	return (dest);
 }
