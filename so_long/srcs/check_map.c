@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:08:41 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 14:26:55 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		check_char_map(char c, int x, int y, t_data *data)
 	if (c == VOID || c == WALL || c == EXIT || c == COLLECT || c == PLAYER)
 	{
 		if (c == COLLECT)
-			data->collect_count++;
+				data->collect_count++;
 		if (c == EXIT)
 			data->exit_count++;
 		if (c == PLAYER)
@@ -76,7 +76,6 @@ void	check_map(int fd, t_data *data)
 	int	y;
 
 	i = 0;
-	y = 0;
 	get_map(fd, data);
 	if (!data->map)
 		exit (ft_printf(EMPTY_MAP_FILE));
@@ -84,6 +83,7 @@ void	check_map(int fd, t_data *data)
 	{
 		if (ft_strlen(data->map[i]) != ft_strlen(data->map[0]))
 			exit (ft_printf(INVALID_FORMAT));
+		y = 0;
 		while (data->map[i][y])
 		{
 			if (!check_char_map(data->map[i][y], i, y, data))
@@ -112,7 +112,7 @@ void	parse_map(char *str, t_data *data)
 	else
 	{
 		free (extension);
-		fd = open (str, O_RDONLY);
+		fd = open(str, O_RDONLY);
 		if (fd == -1)
 			exit (ft_printf(OPEN_MAP_FILE_ERR));
 		check_map(fd, data);

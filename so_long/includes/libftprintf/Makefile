@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 10:46:12 by ssalor            #+#    #+#              #
-#    Updated: 2023/02/20 14:04:38 by ssalor           ###   ########.fr        #
+#    Updated: 2023/06/06 13:49:14 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,16 +84,16 @@ LIBPTF_SRCS = ft_printf\
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(addprefix $(LIBFT_DIR), $(addsuffix .c, $(LIBFT_SRCS)))
-	$(CC) $(CFLAGS) -c $(addprefix $(LIBPTF_DIR), $(addsuffix .c, $(LIBPTF_SRCS)))
-	ar rcs $(NAME) $(addsuffix .o, $(LIBPTF_SRCS)) $(addsuffix .o, $(LIBFT_SRCS))
+	@$(CC) $(CFLAGS) -c $(addprefix $(LIBFT_DIR), $(addsuffix .c, $(LIBFT_SRCS)))
+	@$(CC) $(CFLAGS) -c $(addprefix $(LIBPTF_DIR), $(addsuffix .c, $(LIBPTF_SRCS)))
+	@ar rcs $(NAME) $(addsuffix .o, $(LIBPTF_SRCS)) $(addsuffix .o, $(LIBFT_SRCS))
 
 clean:
-	$(RM) $(addsuffix .o, $(LIBPTF_SRCS))
-	$(RM) $(addsuffix .o, $(LIBFT_SRCS))
+	@$(RM) $(addsuffix .o, $(LIBPTF_SRCS))
+	@$(RM) $(addsuffix .o, $(LIBFT_SRCS))
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:04:16 by ssalor            #+#    #+#             */
-/*   Updated: 2023/01/10 14:55:21 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 14:15:27 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_ecris(char *dest, const char *src, char c)
 	size_t	i;
 
 	i = 0;
-	while (src[i] != c && src[i] != '\0')
+	while ((src[i] == c || src[i] == '\0') == 0)
 	{
 		dest[i] = src[i];
 		i++;
@@ -77,7 +77,6 @@ int	ft_tabtab(char **tab, const char *s, char c)
 			i += j;
 			k++;
 		}
-		free(tab);
 	}
 	return (0);
 }

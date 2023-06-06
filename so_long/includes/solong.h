@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 10:10:06 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/06 13:50:47 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ typedef struct data_s
 
 //dans so_long.c
 int		main(int argc, char **argv);
+void	ft_hook(t_data *data);
 
 //dans check_map.c
 void	parse_map(char *str, t_data *data);
