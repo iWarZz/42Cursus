@@ -6,11 +6,11 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:03:02 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:03:42 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:00:14 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "../includes/solong_bonus.h"
 
 void	solong_renderer(t_data *data, mlx_image_t *img, int x, int y)
 {

@@ -6,11 +6,11 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:13:12 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:00:27 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:00:05 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "../includes/solong_bonus.h"
 
 void	solong_move_up(t_data *data)
 {

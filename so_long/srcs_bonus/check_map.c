@@ -6,11 +6,11 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:00:13 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/07 13:59:53 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "../includes/solong_bonus.h"
 
 void	check_nbr_char_map(t_data *data)
 {

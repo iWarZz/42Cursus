@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 14:35:13 by ssalor            #+#    #+#              #
-#    Updated: 2023/06/06 13:48:38 by ssalor           ###   ########.fr        #
+#    Updated: 2023/06/07 13:50:37 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,11 @@ MLX42 = MLX42/build/libmlx42.a
 
 SOURCES = $(shell find ./srcs -iname "*.c")
 
+SOURCES_BONUS = $(shell find ./srcs_bonus -iname "*.c")
+
 OBJECTS = ${SOURCES:.c=.o}
+
+OBJECTS_BONUS = ${SOURCES_BONUS:.c=.o}
 
 all : $(MLX42) $(LIBFT) $(LIBFTPRINTF) $(NAME)
 
@@ -46,18 +50,26 @@ $(LIBFTPRINTF) :
 
 $(NAME) : $(OBJECTS)
 	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(LIBFTPRINTF) $(MLX42) $(INCLUDES) -o $(NAME)
+	@echo "So_long compiled"
+
+bonus : $(MLX42) $(LIBFT) $(LIBFTPRINTF) $(NAME)_bonus
+	@echo "So_long bonus compiled"
+
+$(NAME)_bonus : $(OBJECTS_BONUS)
+	@$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(LIBFTPRINTF) $(MLX42) $(INCLUDES) -o $(NAME)_bonus
 
 clean :
-	@$(RM) $(OBJECTS)
+	@$(RM) $(OBJECTS) $(OBJECTS_BONUS)
 	@cd includes/libft && $(MAKE) clean
 	@cd includes/libftprintf && $(MAKE) clean
 
 fclean : clean
 	@$(RM) includes/libft/libft.a
 	@$(RM) includes/libftprintf/libftprintf.a
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME)_bonus
+	@echo "fclean success"
 
 re : clean all
 
-.PHONY : all clean fclean re
+.PHONY : all bonus clean fclean re
 

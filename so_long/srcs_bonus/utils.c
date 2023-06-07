@@ -6,11 +6,11 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:36:30 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:04:03 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/07 14:00:27 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/solong.h"
+#include "../includes/solong_bonus.h"
 
 int	map_close_by_wall(char **map, int i)
 {
