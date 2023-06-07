@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/06 13:50:47 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/07 11:29:50 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ typedef struct data_s
 
 //dans so_long.c
 int		main(int argc, char **argv);
-void	ft_hook(t_data *data);
 
 //dans check_map.c
 void	parse_map(char *str, t_data *data);
@@ -125,11 +124,18 @@ int		map_close_by_wall(char **map, int i);
 void	can_play_map(t_data *data, int map_height, int width);
 void	solong_dfs(int x, int y, t_data *data, int **visited);
 void	solong_setup(t_data *data);
+void	solong_key_handler(mlx_key_data_t keydata, t_data *data);
 
 //dans solong_loader
 void	solong_render_manager(t_data *data);
 void	solong_loader(t_data *data);
 void	solong_double_renderer(t_data *data, mlx_image_t *img, int x, int y);
 void	solong_renderer(t_data *data, mlx_image_t *img, int x, int y);
+
+//dans move.c
+void	solong_move_up(t_data *data);
+void	solong_move_down(t_data *data);
+void	solong_move_right(t_data *data);
+void	solong_move_left(t_data *data);
 
 #endif
