@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong bonus.h                                     :+:      :+:    :+:   */
+/*   solong_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:59:19 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/08 11:33:35 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct player_data_s
 	int	y;
 }	t_player_data;
 
+typedef	struct enemy_data_s
+{
+	int	v;
+	int	w;
+}	t_enemy_data;
+
 typedef struct data_tiles_s
 {
 	xpm_t			*player_xpmt;
@@ -39,11 +45,13 @@ typedef struct data_tiles_s
 	xpm_t			*void_xpmt;
 	xpm_t			*collect_xpmt;
 	xpm_t			*exit_xpmt;
+	xpm_t			*enemy_xpmt;
 	mlx_image_t		*player_image;
 	mlx_image_t		*wall_image;
 	mlx_image_t		*void_image;
 	mlx_image_t		*collect_image;
 	mlx_image_t		*exit_image;
+	mlx_image_t		*enemy_image;
 }	t_data_tiles;
 
 typedef struct data_s
@@ -56,6 +64,7 @@ typedef struct data_s
 	int				collect_count;
 	int				player_count;
 	int				item_found;
+	int				enemy_count;
 	int				move_count;
 	char			**map;
 	int				map_heigth;
@@ -64,6 +73,7 @@ typedef struct data_s
 	int				collect_found_player;
 	t_player_data	data_player;
 	t_data_tiles	data_tiles;
+	t_enemy_data	data_enemy;
 }	t_data;
 
 /*ERROR MESSAGES */
@@ -86,6 +96,7 @@ typedef struct data_s
 # define INVALID_NBR_EXIT "Invalid number of Exits (E)"
 # define NO_COLLECTABLES "Map doesn't have any Collectable (C)"
 # define INVALID_NBR_PLAYERS "Invalid number of Players on map (P)"
+# define INVALID_NBR_ENEMY "Invalid number of enemy on map (N)"
 
 # define UNACHIEVABLE_ENTITIES "Map has unachievable entities"
 
@@ -106,6 +117,7 @@ typedef struct data_s
 # define EXIT 'E'
 # define COLLECT 'C'
 # define PLAYER 'P'
+# define ENEMY 'N'
 
 # define WIN_MESSAGE "YOU WON !"
 
@@ -137,5 +149,13 @@ void	solong_move_up(t_data *data);
 void	solong_move_down(t_data *data);
 void	solong_move_right(t_data *data);
 void	solong_move_left(t_data *data);
+
+//dans enemy.c
+
+//dans enemy_move.c
+void	solong_enemy_move_up(t_data *data);
+void	solong_enemy_move_down(t_data *data);
+void	solong_enemy_move_right(t_data *data);
+void	solong_enemy_move_left(t_data *data);
 
 #endif

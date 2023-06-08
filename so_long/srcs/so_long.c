@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/07 13:01:38 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/08 10:42:57 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_victory(t_data *data)
 			&& data->collect_found_player == data->collect_count)
 	{
 		mlx_close_window(data->mlx_ptr);
-		ft_printf("GAME OVER, You win with %i moves.\n", data->move_count);
+		ft_printf("You win with %i moves.\n", data->move_count);
 	}
 }
 
