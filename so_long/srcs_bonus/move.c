@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 11:13:12 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/08 15:43:50 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 10:07:38 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ void	solong_move_up(t_data *data)
 			solong_renderer(data, data->data_tiles.void_image, x, y);
 		else
 			solong_double_renderer(data, data->data_tiles.exit_image, x, y);
-		solong_renderer(data, data->data_tiles.player_image, x - 1, y);
+		solong_renderer(data, data->data_tiles.playr_img, x - 1, y);
 		data->data_player.x--;
 		data->move_count++;
 		solong_renderer(data, data->data_tiles.wall_image, 0, 0);
 		mlx_put_string(data->mlx_ptr, ft_itoa(data->move_count), 0, 0);
 	}
-	solong_enemy_move_up(data);
 }
 
 void	solong_move_down(t_data *data)
@@ -59,14 +58,12 @@ void	solong_move_down(t_data *data)
 			solong_renderer(data, data->data_tiles.void_image, x, y);
 		else
 			solong_double_renderer(data, data->data_tiles.exit_image, x, y);
-		solong_renderer(data, data->data_tiles.player_image, x + 1, y);
+		solong_renderer(data, data->data_tiles.playr_img, x + 1, y);
 		data->data_player.x++;
 		data->move_count++;
 		solong_renderer(data, data->data_tiles.wall_image, 0, 0);
 		mlx_put_string(data->mlx_ptr, ft_itoa(data->move_count), 0, 0);
-
 	}
-	solong_enemy_move_down(data);
 }
 
 void	solong_move_right(t_data *data)
@@ -88,13 +85,12 @@ void	solong_move_right(t_data *data)
 			solong_renderer(data, data->data_tiles.void_image, x, y);
 		else
 			solong_double_renderer(data, data->data_tiles.exit_image, x, y);
-		solong_renderer(data, data->data_tiles.player_image, x, y + 1);
+		solong_renderer(data, data->data_tiles.playr_img, x, y + 1);
 		data->data_player.y++;
 		data->move_count++;
 		solong_renderer(data, data->data_tiles.wall_image, 0, 0);
 		mlx_put_string(data->mlx_ptr, ft_itoa(data->move_count), 0, 0);
 	}
-	solong_enemy_move_right(data);
 }
 
 void	solong_move_left(t_data *data)
@@ -116,11 +112,10 @@ void	solong_move_left(t_data *data)
 			solong_renderer(data, data->data_tiles.void_image, x, y);
 		else
 			solong_double_renderer(data, data->data_tiles.exit_image, x, y);
-		solong_renderer(data, data->data_tiles.player_image, x, y - 1);
+		solong_renderer(data, data->data_tiles.playr_img, x, y - 1);
 		data->data_player.y--;
 		data->move_count++;
 		solong_renderer(data, data->data_tiles.wall_image, 0, 0);
 		mlx_put_string(data->mlx_ptr, ft_itoa(data->move_count), 0, 0);
 	}
-	solong_enemy_move_left(data);
 }

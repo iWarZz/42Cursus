@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:43:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/08 15:24:56 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 09:52:17 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_nbr_char_map(t_data *data)
 int	check_char_map(char c, int x, int y, t_data *data)
 {
 	if (c == VOID || c == WALL || c == EXIT || c == COLLECT || c == PLAYER
-			|| c == ENEMY)
+		|| c == ENEMY)
 	{
 		if (c == COLLECT)
 				data->collect_count++;

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/08 15:19:25 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 09:45:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ int	main(int argc, char **argv)
 	parse_map(argv[1], &data);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data.mlx_ptr = mlx_init(data.map_width * 64, data.map_heigth * 64,
-			"HULK REVENGE", true);
+			"HULK NEED DRUG ??", true);
 	solong_loader(&data);
 	solong_render_manager(&data);
-	//ft_printf("Moves: %i\r", data.move_count);
 	mlx_key_hook(data.mlx_ptr, (mlx_keyfunc) & solong_key_handler, &data);
 	mlx_loop_hook(data.mlx_ptr, (void *) &check_victory, &data);
 	mlx_loop_hook(data.mlx_ptr, (void *) &check_lose, &data);

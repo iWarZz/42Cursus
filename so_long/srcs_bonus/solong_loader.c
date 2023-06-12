@@ -6,11 +6,25 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:03:02 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/08 10:56:05 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 10:05:44 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/solong_bonus.h"
+
+void	solong_loader_2(t_data *data)
+{
+	data->data_tiles.wall_xpmt = mlx_load_xpm42("./XPM42/wall.xpm42");
+	data->data_tiles.void_xpmt = mlx_load_xpm42("./XPM42/sol.xpm42");
+	data->data_tiles.collect_xpmt = mlx_load_xpm42("./XPM42/collect.xpm42");
+	data->data_tiles.player_xpmt = mlx_load_xpm42("./XPM42/hulk_petit.xpm42");
+	data->data_tiles.exit_xpmt = mlx_load_xpm42("./XPM42/exit.xpm42");
+	data->data_tiles.enemy_xpmt = mlx_load_xpm42("./XPM42/enemy_static.xpm42");
+	if (!data->data_tiles.wall_xpmt || !data->data_tiles.void_xpmt
+		|| !data->data_tiles.collect_xpmt || !data->data_tiles.player_xpmt
+		|| !data->data_tiles.exit_xpmt)
+		exit(ft_printf(XPM_ERROR));
+}
 
 void	solong_renderer(t_data *data, mlx_image_t *img, int x, int y)
 {
@@ -46,41 +60,30 @@ void	solong_render_manager(t_data *data)
 				solong_double_renderer(data, data->data_tiles.exit_image,
 					x, y);
 			if (data->map[x][y] == PLAYER)
-				solong_double_renderer(data, data->data_tiles.player_image,
-					x, y);
+				solong_double_renderer(data, data->data_tiles.playr_img, x, y);
 			if (data->map[x][y] == ENEMY)
-				solong_double_renderer(data, data->data_tiles.enemy_image,
-					x, y);
+				solong_double_renderer(data, data->data_tiles.enemy_image, x, y);
 		}
 	}
 }
 
 void	solong_loader(t_data *data)
 {
-	data->data_tiles.wall_xpmt = mlx_load_xpm42("./XPM42/wall.xpm42");
-	data->data_tiles.void_xpmt = mlx_load_xpm42("./XPM42/sol.xpm42");
-	data->data_tiles.collect_xpmt = mlx_load_xpm42("./XPM42/collect.xpm42");
-	data->data_tiles.player_xpmt = mlx_load_xpm42("./XPM42/hulk_petit.xpm42");
-	data->data_tiles.exit_xpmt = mlx_load_xpm42("./XPM42/exit.xpm42");
-	data->data_tiles.enemy_xpmt = mlx_load_xpm42("./XPM42/enemy.xpm42");
-	if (!data->data_tiles.wall_xpmt || !data->data_tiles.void_xpmt
-		|| !data->data_tiles.collect_xpmt || !data->data_tiles.player_xpmt
-		|| !data->data_tiles.exit_xpmt)
-		exit(ft_printf(XPM_ERROR));
+	solong_loader_2(data);
 	data->data_tiles.wall_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.wall_xpmt->texture);
 	data->data_tiles.void_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.void_xpmt->texture);
 	data->data_tiles.collect_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.collect_xpmt->texture);
-	data->data_tiles.player_image = mlx_texture_to_image(data->mlx_ptr,
+	data->data_tiles.playr_img = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.player_xpmt->texture);
 	data->data_tiles.exit_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.exit_xpmt->texture);
 	data->data_tiles.enemy_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.enemy_xpmt->texture);
 	if (!data->data_tiles.wall_image || !data->data_tiles.void_image
-		|| !data->data_tiles.collect_image || !data->data_tiles.player_image
+		|| !data->data_tiles.collect_image || !data->data_tiles.playr_img
 		|| !data->data_tiles.exit_image)
 		exit(ft_printf(IMAGE_ERROR));
 }

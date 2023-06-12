@@ -6,12 +6,12 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/08 11:33:35 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 10:14:20 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#ifndef SOLONG_BONUS_H
+# define SOLONG_BONUS_H
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -32,7 +32,7 @@ typedef struct player_data_s
 	int	y;
 }	t_player_data;
 
-typedef	struct enemy_data_s
+typedef struct enemy_data_s
 {
 	int	v;
 	int	w;
@@ -46,7 +46,7 @@ typedef struct data_tiles_s
 	xpm_t			*collect_xpmt;
 	xpm_t			*exit_xpmt;
 	xpm_t			*enemy_xpmt;
-	mlx_image_t		*player_image;
+	mlx_image_t		*playr_img;
 	mlx_image_t		*wall_image;
 	mlx_image_t		*void_image;
 	mlx_image_t		*collect_image;
@@ -123,6 +123,8 @@ typedef struct data_s
 
 //dans so_long.c
 int		main(int argc, char **argv);
+void	check_victory(t_data *data);
+void	check_lose(t_data *data);
 
 //dans check_map.c
 void	parse_map(char *str, t_data *data);
@@ -143,6 +145,7 @@ void	solong_render_manager(t_data *data);
 void	solong_loader(t_data *data);
 void	solong_double_renderer(t_data *data, mlx_image_t *img, int x, int y);
 void	solong_renderer(t_data *data, mlx_image_t *img, int x, int y);
+void	solong_loader_2(t_data *data);
 
 //dans move.c
 void	solong_move_up(t_data *data);
