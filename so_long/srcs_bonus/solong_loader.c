@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:03:02 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/12 10:05:44 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 10:28:00 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ void	solong_loader_2(t_data *data)
 	data->data_tiles.player_xpmt = mlx_load_xpm42("./XPM42/hulk_petit.xpm42");
 	data->data_tiles.exit_xpmt = mlx_load_xpm42("./XPM42/exit.xpm42");
 	data->data_tiles.enemy_xpmt = mlx_load_xpm42("./XPM42/enemy_static.xpm42");
+	data->data_tiles.win_xpmt = mlx_load_xpm42("XPM42/win.xpm42");
+	data->data_tiles.lose_xpmt = mlx_load_xpm42("XPM42/lose.xpm42");
 	if (!data->data_tiles.wall_xpmt || !data->data_tiles.void_xpmt
 		|| !data->data_tiles.collect_xpmt || !data->data_tiles.player_xpmt
-		|| !data->data_tiles.exit_xpmt)
+		|| !data->data_tiles.exit_xpmt || !data->data_tiles.lose_xpmt
+		|| !data->data_tiles.win_xpmt)
 		exit(ft_printf(XPM_ERROR));
 }
 
@@ -82,6 +85,10 @@ void	solong_loader(t_data *data)
 			&data->data_tiles.exit_xpmt->texture);
 	data->data_tiles.enemy_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.enemy_xpmt->texture);
+	data->data_tiles.win_image = mlx_texture_to_image(data->mlx_ptr,
+			&data->data_tiles.win_xpmt->texture);
+	data->data_tiles.lose_image = mlx_texture_to_image(data->mlx_ptr,
+			&data->data_tiles.lose_xpmt->texture);
 	if (!data->data_tiles.wall_image || !data->data_tiles.void_image
 		|| !data->data_tiles.collect_image || !data->data_tiles.playr_img
 		|| !data->data_tiles.exit_image)

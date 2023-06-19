@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:17:56 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/12 09:45:31 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/12 10:38:28 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 void	check_lose(t_data *data)
 {
+	int	i;
 	int	x;
 	int	y;
 	int	v;
 	int	w;
 
+	i = 0;
 	x = data->data_player.x;
 	y = data->data_player.y;
 	v = data->data_enemy.v;
 	w = data->data_enemy.w;
 	if (x == v && y == w)
 	{
+		mlx_image_to_window(data->mlx_ptr, data->data_tiles.lose_image, 0, 0);
 		ft_printf("YOU LOSE NOOB");
 		mlx_close_window(data->mlx_ptr);
 	}

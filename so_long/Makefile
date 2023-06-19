@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 14:35:13 by ssalor            #+#    #+#              #
-#    Updated: 2023/06/07 13:50:37 by ssalor           ###   ########.fr        #
+#    Updated: 2023/06/13 12:49:44 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,4 +72,3 @@ fclean : clean
 re : clean all
 
 .PHONY : all bonus clean fclean re
-
