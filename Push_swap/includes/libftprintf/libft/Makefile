@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 14:19:51 by ssalor            #+#    #+#              #
-#    Updated: 2023/06/13 12:46:24 by ssalor           ###   ########.fr        #
+#    Updated: 2023/06/21 13:17:13 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ RM		= rm -f
 ## SOURCES
 
 SOURCES = ft_bzero.c\
+			ft_atol.c\
 			ft_isalnum.c\
 			ft_isalpha.c\
 			ft_isascii.c\

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:28:01 by ssalor            #+#    #+#             */
-/*   Updated: 2022/12/16 13:38:13 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/21 13:18:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_toupper(int c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *grand, const char *petit, size_t len);
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *str);
 void	*ft_calloc(size_t nbelem, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
