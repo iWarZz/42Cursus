@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/21 13:06:47 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/23 14:06:32 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	check_rep(t_node *a, int value);
 void	listadd_bottom(t_node **a, int value);
 t_node	*get_last_node(t_node *stack);
 void	rotary_please(t_node **a);
+
+//dans swap.c
 
 # endif
