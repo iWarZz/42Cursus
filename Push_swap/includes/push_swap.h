@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 14:38:54 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:40:23 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,4 @@ void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
 
-# endif
+#endif
