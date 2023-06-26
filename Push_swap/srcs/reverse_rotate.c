@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 10:50:37 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 11:54:51 by ssalor           ###   ########.fr       */
+/*   Created: 2023/06/26 11:55:25 by ssalor            #+#    #+#             */
+/*   Updated: 2023/06/26 12:02:50 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ps_rotate(t_node **stack)
+void	ps_reverse_rotate(t_node **stack)
 {
-	listadd_bottom(stack, (*stack)->value);
-	listdel_top(stack);
+	listadd_top(stack, get_last_node((*stack)->value));
+	listdel_bottom(stack);
 }
 
-void	ra(t_node **a)
+void	rra(t_node **a)
 {
 	if (*a)
 	{
-		ps_rotate(a);
-		ft_printf("ra\n");
+		ps_reverse_rotate(a);
+		ft_printf("rra\n");
 	}
 }
 
-void	rb(t_node **b)
+void	rrb(t_node **b)
 {
-	if (*b)
+	if(*b)
 	{
-		ps_rotate(b);
-		ft_printf("rb\n");
+		ps_reverse_rotate(b);
+		ft_printf("rrb\n");
 	}
 }
 
-void	rr(t_node **a, t_node **b)
+void	rrr(t_node **a, t_node **b)
 {
-	ra(a);
-	rb(b);
-	ft_printf("rr\n");
+	rra(a);
+	rrb(b);
+	ft_printf("rrr\n");
 }
-
-
