@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:02:29 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/21 13:03:19 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:35:10 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_syntax(char *str)
 		exit(ft_printf(ER_SYNT));
 	while (*str != '\0')
 	{
-		if(!(*str >= '0' && *str <= '9'))
+		if (!(*str >= '0' && *str <= '9'))
 			exit(ft_printf(ER_SYNT));
 		str++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 09:58:28 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 10:45:49 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:36:08 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ps_push(t_node **stack_src, t_node **stack_dest)
 
 void	pa(t_node **a, t_node **b)
 {
-	if(*b)
+	if (*b)
 	{
 		ps_push(b, a);
 		ft_printf("pa\n");

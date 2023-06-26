@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 14:05:06 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 09:57:16 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/26 14:32:16 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ps_swap(t_node *stack)
 
 void	sa(t_node *a)
 {
-	if (a == NULL && a->next != NULL)
+	if (a != NULL && a->next != NULL)
 	{
 		ps_swap(a);
 		ft_printf("sa\n");
@@ -34,7 +34,7 @@ void	sa(t_node *a)
 
 void	sb(t_node *b)
 {
-	if (b == NULL && b->next != NULL)
+	if (b != NULL && b->next != NULL)
 	{
 		ps_swap(b);
 		ft_printf("sb\n");
