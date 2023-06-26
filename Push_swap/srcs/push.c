@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 14:05:06 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 09:57:16 by ssalor           ###   ########.fr       */
+/*   Created: 2023/06/26 09:58:28 by ssalor            #+#    #+#             */
+/*   Updated: 2023/06/26 10:45:49 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ps_swap(t_node *stack)
+void	ps_push(t_node **stack_src, t_node **stack_dest)
 {
-	int	temp;
-
-	if (stack == NULL)
-		return ;
-	temp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = temp;
+	listadd_top(stack_dest, (*stack_src)->value);
+	listdel_top(stack_src);
 }
 
-void	sa(t_node *a)
+void	pa(t_node **a, t_node **b)
 {
-	if (a == NULL && a->next != NULL)
+	if(*b)
 	{
-		ps_swap(a);
-		ft_printf("sa\n");
+		ps_push(b, a);
+		ft_printf("pa\n");
 	}
 }
 
-void	sb(t_node *b)
+void	pb(t_node **a, t_node **b)
 {
-	if (b == NULL && b->next != NULL)
+	if (*a)
 	{
-		ps_swap(b);
-		ft_printf("sb\n");
+		ps_push(a, b);
+		ft_printf("pb\n");
 	}
-}
-
-void	ss(t_node *a, t_node *b)
-{
-	sa(a);
-	sb(b);
 }

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:42:51 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/21 13:09:48 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/26 10:17:18 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,24 @@ void	listadd_bottom(t_node **a, int value)
 		new_node->prev = last_node;
 		new_node->index = last_node->index + 1;
 	}
+}
+
+void	listadd_top(t_node **stack, int value)
+{
+	t_node	*new_node;
+	t_node	*first_node;
+
+	new_node = ft_calloc(sizeof(t_node), 1);
+	if (!new_node)
+		exit(ft_printf(MAL_ER));
+	new_node->value = value;
+	if (*stack != NULL)
+	{
+		first_node = *stack;
+		new_node->next = first_node;
+		first_node->prev = new_node;
+	}
+	*stack = new_node;
 }
 
 void	create_stack(t_node **a, char **arg_values)
