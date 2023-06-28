@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:42:51 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 13:26:28 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/28 11:50:21 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	listadd_bottom(t_node **a, int value)
 
 	new_node = ft_calloc(sizeof(t_node), 1);
 	if (!new_node)
-		exit(ft_printf(MAL_ER));
+		exit(write(2, "Error\n", 6));
 	new_node->value = value;
 	if (*a == NULL)
 	{
@@ -62,7 +62,7 @@ void	listadd_top(t_node **stack, int value)
 
 	new_node = ft_calloc(sizeof(t_node), 1);
 	if (!new_node)
-		exit(ft_printf(MAL_ER));
+		exit(write(2, "Error\n", 6));
 	new_node->value = value;
 	if (*stack != NULL)
 	{
@@ -84,7 +84,7 @@ void	create_stack(t_node **a, char **arg_values)
 		check_syntax(arg_values[i]);
 		value = ft_atol(arg_values[i]);
 		if (value > INT_MAX || value < INT_MIN)
-			exit(ft_printf(ARG_NOT_INT));
+			exit(write(2, "Error\n", 6));
 		check_rep(*a, (int)value);
 		listadd_bottom(a, (int)value);
 		i++;

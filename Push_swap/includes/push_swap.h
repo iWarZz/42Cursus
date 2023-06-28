@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 14:40:23 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/28 11:47:57 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-# define NO_ARG "Error: No argument."
-# define ER_SYNT "Error: Syntax error in argument."
-# define ARG_NOT_INT "Error: Argument does not fit into an int."
-# define ARG_REP "Error: Repetition in arguments."
-# define MAL_ER "Malloc failed"
 //dans main.c
 int		main(int argc, char **argv);
 void	print_stack(t_node *stack);
