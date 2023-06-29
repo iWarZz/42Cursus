@@ -6,13 +6,13 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:09:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/28 11:53:45 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/29 14:52:29 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stack(t_node *stack)
+/*void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
@@ -21,6 +21,48 @@ void	print_stack(t_node *stack)
 		if (stack->index == 1)
 			break ;
 	}
+}*/
+/* tant que a :	remonte dans a avec runner->prev.
+				puis index en parcourant runner*/
+void	set_index(t_node *a)
+{
+	int		i;
+	t_node	*runner;
+
+	while (a)
+	{
+		runner = a;
+		i = 1;
+		while (runner->prev)
+			runner = runner->prev;
+		while (runner)
+		{
+			if (a->value < runner->value)
+				i++;
+			runner = runner->next;
+		}
+		a->index = i;
+		a = a->next;
+	}
+}
+
+void	create_stack(t_node **a, char **arg_values)
+{
+	long	value;
+	int		i;
+
+	i = 0;
+	while (arg_values[i])
+	{
+		check_syntax(arg_values[i]);
+		value = ft_atol(arg_values[i]);
+		if (value > INT_MAX || value < INT_MIN)
+			exit(write(2, "Error\n", 6));
+		check_rep(*a, (int)value);
+		listadd_bottom(a, (int)value, 0, 0);
+		i++;
+	}
+	set_index(a);
 }
 
 int	main(int argc, char **argv)
@@ -39,8 +81,7 @@ int	main(int argc, char **argv)
 	else
 		arg_values = argv + 1;
 	create_stack(&a, arg_values);
-	print_stack(a);
-	sa(a);
-	ft_printf("\n\n");
-	print_stack(a);
+	//print_stack(a);
+	//ft_printf("\n\n");
+	//print_stack(a);
 }

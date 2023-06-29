@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/28 11:47:57 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/06/29 14:55:24 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_node
 {
 	int				value;
 	int				index;
+	int				chunk;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
@@ -42,10 +43,10 @@ void	check_rep(t_node *a, int value);
 
 //dans utils.c
 void	create_stack(t_node **a, char **arg_values);
-void	listadd_top(t_node **stack, int value);
-void	listadd_bottom(t_node **a, int value);
+void	listadd_top(t_node **stack, int value, int index, int chunk_nbr);
+void	listadd_bottom(t_node **stack, int value, int index, int chunk_nbr);
 t_node	*get_last_node(t_node *stack);
-void	rotary_please(t_node **a);
+void	set_index(t_node *stack);
 
 //dans utils_2.c
 void	listdel_bottom(t_node **stack);
