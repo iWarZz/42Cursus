@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:09:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/29 15:02:57 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:19:54 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ int	main(int argc, char **argv)
 	else
 		arg_values = argv + 1;
 	create_stack(&a, arg_values);
-	ps_sort(a, b);
+	ps_sort(&a, &b);
+	return (0);
 	//print_stack(a);
 	//ft_printf("\n\n");
 	//print_stack(a);

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/30 13:31:20 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:15:49 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,18 @@ t_node	*get_last_node(t_node *stack);
 void	ps_sort(t_node **a, t_node **b);
 void	ps_small_sort(t_node **a);
 void	ps_mid_sort(t_node **a, t_node **b);
+void	ps_big_sort(t_node **a, t_node **b, int a_len);
 
 //dans sort_utils.c
 int		ps_stacklen(t_node *stack);
 int		ps_is_sorted(t_node *stack);
 t_node	*find_high_index_node(t_node *stack);
+
+//dans final_sort.c
+void	ps_final_sort(t_node **a, t_node **b);
+
+//dans final_sort_utils.c
+
 
 //dans swap.c
 void	ps_swap(t_node *stack);
