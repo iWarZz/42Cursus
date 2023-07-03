@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:42:51 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/29 15:07:42 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:56:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	listadd_bottom(t_node **stack, int value, int index, int chunk_nbr)
 	new_node->value = value;
 	new_node->index = index;
 	new_node->chunk = chunk_nbr;
-	if (stack == NULL)
+	if (*stack == NULL)
 		*stack = new_node;
 	else
 	{

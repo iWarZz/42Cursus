@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 11:55:25 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 14:36:33 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:38:21 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ps_reverse_rotate(t_node **stack)
 {
-	listadd_top(stack, get_last_node(*stack)->value);
+	listadd_top(stack, get_last_node(*stack)->value,
+			get_last_node(*stack)->index, get_last_node(*stack)->chunk);
 	listdel_bottom(stack);
 }
 

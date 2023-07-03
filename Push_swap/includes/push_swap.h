@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:27:08 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:31:47 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <math.h>
 # include <stdbool.h>
 # include <limits.h>
 
@@ -65,6 +62,8 @@ int		find_second_highest_node_location(t_node *stack);
 
 //dans final_sort.c
 void	ps_final_sort(t_node **a, t_node **b);
+void	ps_sort_finale_lower_half(t_node **a, t_node **b);
+void	ps_sort_finale_upper_half(t_node **a, t_node **b);
 
 //dans swap.c
 void	ps_swap(t_node *stack);

@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:00:19 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:11:41 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:49:29 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	ps_small_sort(t_node **a)
 
 	high_node = find_high_index_node(*a);
 	if (*a == high_node)
-		ra(*a);
+		ra(a);
 	else if ((*a)->next == high_node)
-		rra(*a);
-	if ((*a)->index > (*a)->next->next)
+		rra(a);
+	if ((*a)->index > (*a)->next->index)
 		sa(*a);
 }
 
@@ -82,11 +82,11 @@ void	ps_sort(t_node **a, t_node **b)
 	if (a_len == 1 || ps_is_sorted(*a))
 		return ;
 	else if (a_len == 2)
-		sa(a);
+		sa(*a);
 	else if (a_len == 3)
-		ps_small_sort(*a);
+		ps_small_sort(a);
 	else if (a_len == 4 || a_len == 5)
-		ps_mid_sort(*a, *b);
+		ps_mid_sort(a, b);
 	else
 	{
 		ps_big_sort(a, b, a_len);
