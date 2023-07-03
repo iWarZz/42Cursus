@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:12:18 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:14:48 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/03 11:28:34 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,49 @@ void	ps_final_sort(t_node **a, t_node **b)
 			ps_sort_finale_lower_half(a, b);
 		else
 			ps_sort_finale_upper_half(a, b);
+	}
+}
+
+void	ps_sort_finale_lower_half(t_node **a, t_node **b)
+{
+	bool	second_found;
+
+	while (find_highest_node_location(*b) != 1)
+	{
+		if (find_second_highest_node_location(*b) == 1)
+		{
+			pa(a, b);
+			second_found = true;
+		}
+		else
+			rrb(b);
+	}
+	pa(a, b);
+	if (second_found)
+	{
+		sa(*a);
+		second_found = false;
+	}
+}
+
+void	ps_sort_finale_upper_half(t_node **a, t_node **b)
+{
+	bool	second_found;
+
+	while (find_highest_node_location(*b) != 1)
+	{
+		if (find_second_highest_node_location(*b) == 1)
+		{
+			pa(a, b);
+			second_found = true;
+		}
+		else
+			rb(b);
+	}
+	pa(a, b);
+	if (second_found)
+	{
+		sa(*a);
+		second_found = false;
 	}
 }
