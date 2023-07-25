@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:09:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:55:08 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/05 12:02:33 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	create_stack(t_node **a, char **arg_values)
 			exit(write(2, "Error\n", 6));
 		check_rep(*a, (int)value);
 		listadd_bottom(a, (int)value, 0, 0);
-		ft_printf("ICI SA PASSE");
 		i++;
 	}
 	set_index(*a);

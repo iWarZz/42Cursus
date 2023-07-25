@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:03:02 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/12 10:28:00 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/12 13:16:09 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	solong_render_manager(t_data *data)
 			if (data->map[x][y] == PLAYER)
 				solong_double_renderer(data, data->data_tiles.playr_img, x, y);
 			if (data->map[x][y] == ENEMY)
-				solong_double_renderer(data, data->data_tiles.enemy_image, x, y);
+				solong_double_renderer(data, data->data_tiles.enemy_img, x, y);
 		}
 	}
 }
@@ -83,7 +83,7 @@ void	solong_loader(t_data *data)
 			&data->data_tiles.player_xpmt->texture);
 	data->data_tiles.exit_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.exit_xpmt->texture);
-	data->data_tiles.enemy_image = mlx_texture_to_image(data->mlx_ptr,
+	data->data_tiles.enemy_img = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.enemy_xpmt->texture);
 	data->data_tiles.win_image = mlx_texture_to_image(data->mlx_ptr,
 			&data->data_tiles.win_xpmt->texture);

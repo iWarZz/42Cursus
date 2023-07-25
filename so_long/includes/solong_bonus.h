@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:01:07 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/12 10:20:14 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/07 14:43:25 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct data_tiles_s
 	mlx_image_t		*void_image;
 	mlx_image_t		*collect_image;
 	mlx_image_t		*exit_image;
-	mlx_image_t		*enemy_image;
+	mlx_image_t		*enemy_img;
 	mlx_image_t		*win_image;
 	mlx_image_t		*lose_image;
 }	t_data_tiles;

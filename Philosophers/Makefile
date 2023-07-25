@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/13 09:12:12 by ssalor            #+#    #+#              #
-#    Updated: 2023/07/06 14:30:33 by ssalor           ###   ########.fr        #
+#    Created: 2023/07/06 14:23:17 by ssalor            #+#    #+#              #
+#    Updated: 2023/07/06 14:34:41 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = philosophers
 
 CC = gcc
 
@@ -18,37 +18,23 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-LIBFT = includes/libftprintf/libft/libft.a
-
-LIBFTPRINTF	= includes/libftprintf/libftprintf.a
-
-SOURCES = $(shell find ./srcs -iname "*.c")
+SOURCES = main.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
-all : $(LIBFT) $(LIBFTPRINTF) $(NAME)
+all: $(NAME)
 
-$(LIBFT):
-	@cd includes/libftprintf/libft && $(MAKE)
-
-$(LIBFTPRINTF):
-	@cd includes/libftprintf && $(MAKE)
-
-%.o : %.c
+%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(LIBFTPRINTF) -o $(NAME)
-	@echo "push_swap compiled"
+	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	@echo "Philo compiled"
 
 clean:
 	@$(RM) $(OBJECTS)
-	@cd includes/libftprintf/libft && $(MAKE) clean
-	@cd includes/libftprintf && $(MAKE) clean
 
 fclean: clean
-	@$(RM) includes/libftprintf/libft/libft.a
-	@$(RM) includes/libftprintf/libftprintf.a
 	@$(RM) $(NAME)
 	@echo "fclean success"
 
