@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:50:59 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:59:35 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/26 15:14:05 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_node
 int		main(int argc, char **argv);
 void	create_stack(t_node **a, char **arg_values);
 void	set_index(t_node *stack);
-//void	print_stack(t_node *stack);
 
 //dans check.c
 void	check_syntax(char *str);
@@ -49,19 +48,19 @@ t_node	*get_last_node(t_node *stack);
 
 //dans sort.c
 void	ps_sort(t_node **a, t_node **b);
-void	ps_small_sort(t_node **a);
-void	ps_mid_sort(t_node **a, t_node **b);
-void	ps_big_sort(t_node **a, t_node **b, int a_len);
+void	ps_sort_small(t_node **a);
+void	ps_sort_bitbigger(t_node **a, t_node **b);
+void	ps_sort_big(t_node **a, t_node **b, int a_len);
 
 //dans sort_utils.c
 int		ps_stacklen(t_node *stack);
 int		ps_is_sorted(t_node *stack);
-t_node	*find_high_index_node(t_node *stack);
+t_node	*find_highest_index_node(t_node *stack);
 int		find_highest_node_location(t_node *stack);
 int		find_second_highest_node_location(t_node *stack);
 
 //dans final_sort.c
-void	ps_final_sort(t_node **a, t_node **b);
+void	ps_sort_final(t_node **a, t_node **b);
 void	ps_sort_finale_lower_half(t_node **a, t_node **b);
 void	ps_sort_finale_upper_half(t_node **a, t_node **b);
 

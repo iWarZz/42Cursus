@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:09:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/25 13:55:29 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/26 15:02:32 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	arg_values = NULL;
 	if ((argc == 1) || (argc == 2 && !argv[1][0]))
-		exit(EXIT_SUCCESS);
+		return (0);
 	else if (argc == 2)
 		arg_values = ft_split(argv[1], ' ');
 	else

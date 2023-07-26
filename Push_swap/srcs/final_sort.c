@@ -6,13 +6,13 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 11:12:18 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:30:09 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/26 15:18:51 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ps_final_sort(t_node **a, t_node **b)
+void	ps_sort_final(t_node **a, t_node **b)
 {
 	while (*b != NULL)
 	{
