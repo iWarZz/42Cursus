@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 14:05:06 by ssalor            #+#    #+#             */
-/*   Updated: 2023/06/26 14:32:16 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/25 14:24:54 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	ps_swap(t_node *stack)
 	temp = stack->value;
 	stack->value = stack->next->value;
 	stack->next->value = temp;
+	stack->index = stack->next->index;
+	stack->next->index = temp;
+	temp = stack->chunk;
+	stack->chunk = stack->next->chunk;
+	stack->next->chunk = temp;
 }
 
 void	sa(t_node *a)

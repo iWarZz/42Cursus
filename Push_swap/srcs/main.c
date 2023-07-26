@@ -6,22 +6,12 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:09:23 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/05 12:02:33 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/25 13:55:29 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		ft_printf("| Node %i:\n| val: %i\n----\n", stack->index, stack->value);
-		stack = stack->next;
-		if (stack->index == 1)
-			break ;
-	}
-}*/
 /* tant que a :	remonte dans a avec runner->prev.
 				puis index en parcourant runner*/
 void	set_index(t_node *a)
@@ -37,7 +27,7 @@ void	set_index(t_node *a)
 			runner = runner->prev;
 		while (runner)
 		{
-			if (a->value < runner->value)
+			if (a->value > runner->value)
 				i++;
 			runner = runner->next;
 		}
@@ -83,7 +73,4 @@ int	main(int argc, char **argv)
 	create_stack(&a, arg_values);
 	ps_sort(&a, &b);
 	return (0);
-	//print_stack(a);
-	//ft_printf("\n\n");
-	//print_stack(a);
 }

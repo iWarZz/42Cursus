@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:00:19 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:49:29 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/25 14:09:31 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	ps_big_sort(t_node **a, t_node **b, int a_len)
 	chunk_nbr = 1;
 	while (*a)
 	{
-		if ((*a)->index <= ((chunk_nbr * chunk_len)))
+		if ((*a)->index <= (chunk_nbr * chunk_len))
 		{
 			(*a)->chunk = chunk_nbr;
-			if ((*a)->index <= ((chunk_nbr * chunk_len) - (chunk_len / 2)))
+			if ((*a)->index >= ((chunk_nbr * chunk_len) - (chunk_len / 2)))
 			{
 				pb(a, b);
 				rb(b);

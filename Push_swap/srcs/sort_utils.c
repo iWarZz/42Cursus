@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:15:24 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/03 11:25:44 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/07/25 13:50:30 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		ps_is_sorted(t_node *stack)
 	{
 		if (stack->next)
 		{
-			if (stack->index > stack->next->index)
+			if (stack->next->index < stack->index)
 				return (0);
 		}
 		stack = stack->next;
