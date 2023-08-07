@@ -6,8 +6,16 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:27:03 by ssalor            #+#    #+#             */
-/*   Updated: 2023/07/06 14:27:15 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/07 13:09:09 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int	main(int ac, char **av)
+{
+	t_p		p;
+
+	if (!(parse_args(ac, av, &p)))
+		return();
+}
