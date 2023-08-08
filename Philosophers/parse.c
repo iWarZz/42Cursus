@@ -6,13 +6,13 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:32:33 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/02 14:12:22 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/08 13:43:14 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	numeric(char **av, int i, int, j)
+int	numeric(char **av, int i, int j)
 {
 	while (av[j])
 	{
@@ -37,5 +37,11 @@ int	parse_args(int ac, char **av, t_p *p)
 		p->a.eat = ft_atoi(av[3]);
 		p->a.sleep = ft_atoi(av[4]);
 		p->a.m_eat = -1;
+		if (ac == 6)
+			p->a.sleep = ft_atoi(av[5]);
+		if (p->a.total <= 0 || p->a.eat <= 0 || p->a.sleep <= 0 || p->a.die)
+			return (0);
+		return (1);
 	}
+	return (0);
 }
