@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:27:03 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/08 15:18:06 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/18 13:56:15 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,9 @@ int	main(int ac, char **av)
 	p.ph = malloc(sizeof(t_philo) * p.a.total);
 	if (!p.ph)
 		return (ft_exit("Malloc return NULL\n"));
+	if (!initialize(&p) || !threading(&p))
+	{
+		free(p.ph);
+		return (0);
+	}
 }
