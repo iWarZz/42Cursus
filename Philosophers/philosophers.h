@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:20:16 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/02 14:08:11 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/21 10:19:01 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,40 @@
 # include <sys/time.h>
 # include <pthread.h>
 
-typedef struct s_arg
+# define ERROR 1
+# define SUCCESS 0
+
+typedef struct forks
 {
-int						total;
-int						die;
-int						eat;
-int						sleep;
-int						m_eat;
-long int				start_t;
-pthread_mutex_t			write_mutex;
-pthread_mutex_t			dead;
-pthread_mutex_t			time_eat;
-pthread_mutex_t			finish;
-int						nb_p_finish;
-int						stop;
-}						t_arg;
+	int				left;
+	int				right;
+}			t_forks;
 
 typedef struct s_philo
 {
-	int					id;
-	pthread_t			thread_id;
-	pthread_t			thread_death_id;
-	pthread_mutex_t		*r_f;
-	pthread_mutex_t		l_f;
-	t_arg				*pa;
-	long int			ms_eat;
-	unsigned int		nb_eat;
-	int					finish;
-}						t_philo;
+	int				id;
+	int				meals_count;
+	long long		time_left;
+	t_forks			forks;
+	pthread_t		thread;
+	struct s_data	*data;
+}			t_philo;
 
-typedef struct s_p
+typedef struct s_data
 {
-	t_philo				*ph;
-	t_arg				a;
-}						t_p;
+	int				nbr_philo;
+	int				time_die;
+	int				time_eat;
+	int				time_sleep;
+	int				max_meals;
+	int				someone_died;
+	long long		start_time;
+	int				n_thread;
+	t_philo			*philo;
+	pthread_t		manager;
+	pthread_mutex_t	*forks_mtx;
+	pthread_mutex_t	print_mtx;
+}			t_data;
 
 //Dans utils.c
 void	ft_putchar_fd(char c, int fd);
