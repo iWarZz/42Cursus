@@ -6,7 +6,7 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:23:17 by ssalor            #+#    #+#              #
-#    Updated: 2023/07/06 14:34:41 by ssalor           ###   ########.fr        #
+#    Updated: 2023/08/22 13:27:37 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SOURCES = main.c
+SOURCES = main.c setup.c utils.c 
 
 OBJECTS = ${SOURCES:.c=.o}
 
