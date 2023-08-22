@@ -12,4 +12,18 @@
 
 #include "philosophers.h"
 
+int	philo_setup(t_data *data)
+{
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 1;
+	data->philo = malloc(sizeof(t_philo) * (data->nbr_philo + 1));
+	if (data->philo == NULL)
+		return (ERROR);
+	while (j < data->nbr_philo)
+		philo_push_data(data, i++, j++);
+	philo_push_data(data, i, 0);
+	return (SUCCESS);
+}

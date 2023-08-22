@@ -32,3 +32,6 @@ int	main(int argc, char **argv)
 	philo_free(&data);
 	return (SUCCESS);
 }
+
+
+sotudbnfvaeosrigkd;

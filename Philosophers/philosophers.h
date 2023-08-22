@@ -26,6 +26,7 @@ typedef struct forks
 {
 	int				left;
 	int				right;
+	int				lol;
 }			t_forks;
 
 typedef struct s_philo
