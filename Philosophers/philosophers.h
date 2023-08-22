@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:20:16 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/21 10:19:01 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/22 12:48:43 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,15 @@ typedef struct s_data
 	pthread_mutex_t	print_mtx;
 }			t_data;
 
+//dans main.c
+
+
 //Dans utils.c
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(long int ln, int fd);
-int		ft_strlen(char *str);
+
+
+//dans setup.c
+
+
+//dans routine.c
 
 #endif
