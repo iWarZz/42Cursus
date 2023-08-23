@@ -6,11 +6,36 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:18:00 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/23 14:02:23 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/23 14:03:25 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	*life(void *args)
+{
+	t_data *data;
+	int	i;
+
+	data = (t_data *)args;
+	i = data->n_thread;
+	data->someone_died = 0;
+	if (data->max_meals > 0)
+	{
+		while (data->max_meals > data->philo[i].meals_count
+			&& data->someone_died == 0)
+			philo_living(data, i);
+	}
+	else
+	{
+		while (data->someone_died == 0)
+		{
+			if (philo_living(data, i) == ERROR)
+				break ;
+		}
+	}
+	return (NULL);
+}
 
 int	hello_darkness_my_old_friend(t_data *data)
 {
