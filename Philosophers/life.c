@@ -6,12 +6,23 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:18:00 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/23 13:30:22 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/23 14:02:23 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+int	hello_darkness_my_old_friend(t_data *data)
+{
+	if (pthread_mutex_init(&data->print_mtx, NULL) != 0)
+		return (printf("Error:	mutex_init failed.\n"), ERROR);
+	data->start_time = now();
+	philo_print(data, 1, "has taken a  fork");
+	philo_usleep(data->time_die);
+	philo_print(data, 1, "died");
+	philo_free(data);
+	return (SUCCESS);
+}
 
 
 int	philo_living(t_data *data, int i)
