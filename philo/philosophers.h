@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:20:16 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/23 10:09:44 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/23 14:40:18 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <stdbool.h>
+# include <limits.h>
 
 # define ERROR 1
 # define SUCCESS 0
@@ -52,13 +54,13 @@ typedef struct s_data
 	pthread_t		manager;
 	pthread_mutex_t	*forks_mtx;
 	pthread_mutex_t	print_mtx;
-}			t_data;
+}	t_data;
 
 //dans main.c
-int		main(int argc, char **argv);
-int		philo_parsing(t_data *data, char **argv);
-void	thread_free(t_data *data);
-void	philo_free(t_data *data);
+int			main(int argc, char **argv);
+int			philo_parsing(t_data *data, char **argv);
+void		thread_free(t_data *data);
+void		philo_free(t_data *data);
 
 //Dans utils.c
 int			ints_only(char **str);
@@ -68,12 +70,17 @@ long long	time_diff(long long time);
 int			philo_print(t_data *data, int id, char *msg);
 
 //dans setup.c
-int		philo_setup(t_data *data);
-void	philo_push_data(t_data *data, int i, int j);
-int		forks_setup(t_data *data);
-int		thread_setup(t_data *data);
-int		thread_join(t_data *data);
+int			philo_setup(t_data *data);
+void		philo_push_data(t_data *data, int i, int j);
+int			forks_setup(t_data *data);
+int			thread_setup(t_data *data);
+int			thread_join(t_data *data);
 
 //dans routine.c
+int			philo_eating(t_data *data, int i);
+int			philo_sleeping(t_data *data, int i);
+int			philo_thinking(t_data *data, int i);
+int			philo_died(t_data *data, int *i);
+void		philo_usleep(int ms);
 
 #endif
