@@ -6,7 +6,7 @@
 /*   By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:20:16 by ssalor            #+#    #+#             */
-/*   Updated: 2023/08/22 13:52:28 by ssalor           ###   ########.fr       */
+/*   Updated: 2023/08/23 10:09:44 by ssalor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct forks
 {
 	int				left;
 	int				right;
-	int				lol;
 }			t_forks;
 
 typedef struct s_philo
