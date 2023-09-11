@@ -6,11 +6,11 @@
 #    By: ssalor <ssalor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:23:17 by ssalor            #+#    #+#              #
-#    Updated: 2023/08/22 13:27:37 by ssalor           ###   ########.fr        #
+#    Updated: 2023/08/23 14:31:25 by ssalor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philosophers
+NAME = philo
 
 CC = gcc
 
@@ -18,7 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SOURCES = main.c setup.c utils.c 
+SOURCES =	main.c\
+			setup.c\
+			utils.c\
+			life.c\
+			routine.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
