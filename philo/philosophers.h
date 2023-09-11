@@ -83,4 +83,10 @@ int			philo_thinking(t_data *data, int i);
 int			philo_died(t_data *data, int *i);
 void		philo_usleep(int ms);
 
+//dans life.c
+void		*life(void *args);
+int			hello_darkness_my_old_friend(t_data *data);
+int			philo_living(t_data *data, int i);
+void		*manager(void *args);
+
 #endif

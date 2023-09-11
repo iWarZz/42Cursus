@@ -14,8 +14,8 @@
 
 void	*life(void *args)
 {
-	t_data *data;
-	int	i;
+	t_data	*data;
+	int		i;
 
 	data = (t_data *)args;
 	i = data->n_thread;
@@ -48,7 +48,6 @@ int	hello_darkness_my_old_friend(t_data *data)
 	philo_free(data);
 	return (SUCCESS);
 }
-
 
 int	philo_living(t_data *data, int i)
 {

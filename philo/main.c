@@ -30,7 +30,6 @@ void	thread_free(t_data *data)
 
 int	philo_parsing(t_data *data, char **argv)
 {
-
 	if (ints_only(argv) == ERROR)
 		return (ERROR);
 	data->nbr_philo = (int)ft_atol(argv[1]);

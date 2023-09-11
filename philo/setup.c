@@ -30,12 +30,12 @@ int	philo_setup(t_data *data)
 
 void	philo_push_data(t_data *data, int i, int j)
 {
-		data->philo[i].id = i + 1;
-		data->philo[i].meals_count = 0;
-		data->philo[i].time_left = 0;
-		data->philo[i].forks.left = i;
-		data->philo[i].forks.right = j;
-		data->philo[i].data = data;
+	data->philo[i].id = i + 1;
+	data->philo[i].meals_count = 0;
+	data->philo[i].time_left = 0;
+	data->philo[i].forks.left = i;
+	data->philo[i].forks.right = j;
+	data->philo[i].data = data;
 }
 
 int	forks_setup(t_data *data)
